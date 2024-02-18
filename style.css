@@ -1,6 +1,4 @@
 body{
-    height: 100vh;
-    width: 100vw;
     background-color: black;
 }
 
@@ -28,6 +26,7 @@ li{
 
 button
 {
-    width: 50px;
-    font-size: larger;
+    width: 100px;
+    height: 40px;
+    font-size: x-large;
 }

@@ -1,40 +1,39 @@
 const label = document.getElementById("label");
 
 /**
-* Removes the last character from the display.
+* Removes the last character from the label.
 */
 function delChar(){
     label.textContent = label.textContent.slice(0,label.textContent.length-1);
 }
 
 /**
- * Clears all values from the display.
+ * Clears all values from the label.
  */
 function resetLabel(){ 
     label.textContent = "";
 }
 
 /**
- * Adds a character to the display at the end. 
- * @param {string} character A string to add to the display.
+ * Adds a character to the label at the end. 
+ * @param {string} character A string to add to the label.
  */
 function addChar(character){
     label.textContent += character;
 }
 
 /**
- * Splits up the string of the display into different subequations based on the position of the parenthesis and updates it with the result if possible or with a message displaying wether the syntax was invalid.
+ * Splits up the string of the label into different subequations based on the position of the parenthesis and updates it with the result if possible or with a message displaying wether the syntax was invalid.
  */
 function parseEquation(){
     if (isEquationValid()){    
-        let result = label.textContent.replace(',','.').split(/(\([^\(\)]*\))/g).map(calculateThird);
+        let result = label.textContent.replaceAll(',','.').split(/(\([^\(\)]*\))/g).map(calculateThird);
         while (result.length>1){
             let newEquation = `${result.map((element) => `${element}`).join('')}`
             result = newEquation.split(/(\([^\(\)]*\))/g).map(calculateThird);
         }
         result = calculateSecond(result[0])
-        console.log("Inicio:", label.textContent.replace(',','.').split(/(\([^\(\)]*\))/g),"Final:", result);
-        label.textContent = result.toString().replace('.',',')
+        label.textContent = result.toString().replaceAll('.',',')
     }
     else{
         label.textContent = "Invalid Syntax";
@@ -55,7 +54,7 @@ function calculateThird(equation){
 }
 
 /**
- * Splits the equation into an array, using the minus and or plus sign to split it. If the minus is preceded by a multiplication or division sign, it is ignored. Afterwards, it solves the addition and subtraction of the equation and returns the result.
+ * Splits the equation into an array, using the minus and plus sign to split it. If the minus is preceded by a multiplication or division sign, it is ignored. Afterwards, it solves the addition and subtraction of the equation and returns the result.
  * @param {*} equation an equation to solve.
  * @returns the result of the equation or the same string received if it is not an addition or subtraction.
  */
@@ -97,7 +96,7 @@ function isEquationValid(){
     closeParenthesis === null ? closeParenthesis = 0 : closeParenthesis = closeParenthesis.length
     if (openParenthesis !== closeParenthesis)
         return false
-    if (label.textContent.match(/(?<=[-/*+(])\*|(?<=[-+])-|(?<=[-/*+(])\/|(?<=[-/*+(])\+|(?<=\d)\(|(?<=[-/*+(])\)/g)){
+    if (label.textContent.match(/(?<=[-/*+(])\*|(?<=[-+])-|(?<=[-/*+(])\/|(?<=[-/*+(])\+|(?<=\d)\(|(?<=[-/*+(])\)|,,|,\d,/g)){
         return false;
     }
     return true;
