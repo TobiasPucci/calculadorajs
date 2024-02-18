@@ -8,37 +8,51 @@
 </head>
 <body>
     <div class="calc-container">
-        <p id="label"></p>
-        <div class="calc-row">
+        <p class="label" id="label"></p>
+        <div>
             <button onclick="resetLabel()" >C</button>
             <button onclick="delChar()">&#8592;</button> 
             <button onclick="addChar('(')">(</button> 
             <button onclick="addChar(')')">)</button> 
         </div>
-        <div class="calc-row">
+        <div>
             <button onclick="addChar('7')">7</button>
             <button onclick="addChar('8')">8</button>
             <button onclick="addChar('9')">9</button>
             <button onclick="addChar('*')">*</button>
         </div>
-        <div class="calc-row">
+        <div>
             <button onclick="addChar('4')">4</button>
             <button onclick="addChar('5')">5</button>
             <button onclick="addChar('6')">6</button>
             <button onclick="addChar('-')">-</button>
         </div>
-        <div class="calc-row">
+        <div>
             <button onclick="addChar('1')">1</button>  
             <button onclick="addChar('2')">2</button>
             <button onclick="addChar('3')">3</button>
             <button onclick="addChar('+')">+</button>  
         </div>
-        <div class="calc-row">
+        <div>
             <button onclick="addChar(',')">,</button>
             <button onclick="addChar('0')">0</button>
             <button onclick="parseEquation()">=</button>
             <button onclick="addChar('/')">/</button>
         </div>
+        <p class="shortcuts">Atajos de teclado:</p>
+        <ul>
+            <li> c --> C </li>
+            <li> Backspace --> &#8592; </li>
+            <li> 0-9 --> 0-9 </li>
+            <li> + --> + </li>
+            <li> - --> - </li>
+            <li> * --> * </li>
+            <li> / --> / </li>
+            <li> ( --> ( </li>
+            <li> ) --> ) </li>
+            <li> , . --> , </li>
+            <li> Enter --> = </li>
+        </ul>
     </div>
     <script src="main.js"></script>
 </body>

@@ -10,17 +10,24 @@ body{
     max-width: fit-content;
 }
 
-p{
+p.label{
     background-color: #aaa;
     font-size: x-large;
     min-height: 30px;
 }
 
-.calc-row{
-    
+p.shortcuts{
+    font-size: x-large;
+    color: white;
 }
 
-button{
+li{
+    color: white;
+    font-size: x-large ;
+}
+
+button
+{
     width: 50px;
     font-size: larger;
 }
