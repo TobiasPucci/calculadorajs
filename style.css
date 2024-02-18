@@ -1,0 +1,26 @@
+body{
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+}
+
+.calc-container{
+    position:relative;
+    margin: auto;
+    max-width: fit-content;
+}
+
+p{
+    background-color: #aaa;
+    font-size: x-large;
+    min-height: 30px;
+}
+
+.calc-row{
+    
+}
+
+button{
+    width: 50px;
+    font-size: larger;
+}
